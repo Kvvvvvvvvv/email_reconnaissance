@@ -1,0 +1,791 @@
+2025-06-16 12:11:19,168 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:11:19,207 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:11:19,210 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:11:19,221 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:11:19,958 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:11:19,973 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:11:19,989 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:13:00,158 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:13:00,173 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:13:00,173 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:13:00,180 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:13:00,526 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:13:00,533 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:13:00,539 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:13:03,883 - __main__ - ERROR - Error in index: 'NewsFeed' object has no attribute 'get_latest_news'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 343, in index
+    news = news_feed.get_latest_news()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NewsFeed' object has no attribute 'get_latest_news'
+
+2025-06-16 12:13:03,884 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:13:03] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-06-16 12:13:37,925 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:13:37,960 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:13:38,263 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:13:38,269 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:13:38,277 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:13:48,866 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:13:48,880 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:13:48,880 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:13:48,882 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:13:49,182 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:13:49,189 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:13:49,192 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:16:13,910 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:16:13] "GET / HTTP/1.1" 200 -
+2025-06-16 12:16:13,961 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:16:13] "GET /static/css/ospc.css HTTP/1.1" 200 -
+2025-06-16 12:16:22,434 - __main__ - ERROR - Error in index: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 328, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 262, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 88, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:16:22,441 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:16:22] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:16:36,768 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\modules1\\news_feed.py', reloading
+2025-06-16 12:16:36,793 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\modules1\\news_feed.py', reloading
+2025-06-16 12:16:36,804 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:16:36,824 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:16:37,122 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:16:37,122 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:16:37,139 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:16:37,152 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:16:37,159 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:16:37,159 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:16:40,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\modules1\\breach_check.py', reloading
+2025-06-16 12:16:40,604 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\modules1\\breach_check.py', reloading
+2025-06-16 12:16:40,636 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:16:40,644 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:16:40,957 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:16:40,957 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:16:40,957 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:16:40,970 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:16:40,974 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:16:40,978 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:16:44,426 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\modules1\\email_utils.py', reloading
+2025-06-16 12:16:44,456 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\modules1\\email_utils.py', reloading
+2025-06-16 12:16:44,457 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:16:44,489 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:16:44,785 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:16:44,790 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:16:44,797 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:16:44,806 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:16:44,810 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:16:44,817 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:16:52,518 - __main__ - ERROR - Error in index: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 328, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 262, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 88, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:16:52,518 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:16:52] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:16:56,495 - __main__ - ERROR - Error in index: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 328, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 262, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 88, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:16:56,495 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:16:56] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:17:01,280 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:17:01] "GET / HTTP/1.1" 200 -
+2025-06-16 12:17:01,369 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:17:01] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:17:07,474 - __main__ - ERROR - Error in index: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 328, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 262, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 88, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:17:07,474 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:17:07] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:17:22,670 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:17:22,691 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:17:23,040 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:17:23,050 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:17:23,057 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:17:25,429 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:17:25,462 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:17:25,773 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:17:25,779 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:17:25,784 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:17:31,413 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:17:31,451 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:17:31,758 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:17:31,758 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:17:31,773 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:17:33,036 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:17:33,048 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:17:33,049 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:17:33,051 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:17:33,360 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:17:33,379 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:17:33,381 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:17:44,507 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\modules1\\email_utils.py', reloading
+2025-06-16 12:17:44,553 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:17:44,860 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:17:44,866 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:17:44,866 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:17:45,135 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\modules1\\email_utils.py', reloading
+2025-06-16 12:17:45,163 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:17:45,463 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:17:45,476 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:17:45,479 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:17:51,624 - __main__ - ERROR - Error in index: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 335, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 269, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:17:51,643 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:17:51] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:17:51,692 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:17:51] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:17:56,426 - __main__ - ERROR - Error in index: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 335, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 269, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:17:56,434 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:17:56] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:17:56,450 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:17:56] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:18:03,646 - __main__ - ERROR - Error in index: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 335, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 269, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:18:03,646 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:18:03] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:18:03,659 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:18:03] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:18:08,746 - __main__ - ERROR - Error in index: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 335, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 269, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:18:08,746 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:18:08] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:18:08,762 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:18:08] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:18:23,762 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:18:23,775 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:18:23,775 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:18:23,778 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:18:24,091 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:18:24,095 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:18:24,095 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:18:29,643 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:18:29] "GET / HTTP/1.1" 200 -
+2025-06-16 12:18:29,671 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:18:29] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:18:33,622 - __main__ - ERROR - Error in index: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 75, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 67, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 335, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 269, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:18:33,623 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:18:33] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:18:33,646 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:18:33] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:18:58,358 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:18:58,388 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:18:58,688 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:18:58,703 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:18:58,711 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:19:03,486 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:19:03,496 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:19:03,496 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:19:03,498 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:19:03,788 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:19:03,791 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:19:03,791 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:20:31,318 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:20:31,348 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:20:31,667 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:20:31,672 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:20:31,678 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:20:31,716 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:20:31,743 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:20:32,078 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:20:32,088 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:20:32,091 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:20:37,939 - __main__ - ERROR - Error in index route: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 344, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 269, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:20:39,222 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:20:39] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:20:39,274 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:20:39] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:20:44,707 - __main__ - ERROR - Error in index route: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 344, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 269, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:20:45,961 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:20:45] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-06-16 12:20:45,982 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:20:45] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:21:07,154 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:21:07,204 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:21:07,506 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:21:07,506 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:21:07,518 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:21:11,450 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:21:11,464 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:21:11,464 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:21:11,464 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:21:11,787 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:21:11,794 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:21:11,797 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:21:17,415 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:21:17,449 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:21:17,497 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:21:17,531 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:21:17,763 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:21:17,770 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:21:17,774 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:21:17,842 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:21:17,849 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:21:17,853 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:21:24,696 - __main__ - INFO - Starting index route processing
+2025-06-16 12:21:25,480 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:21:25,480 - __main__ - INFO - Processing POST request
+2025-06-16 12:21:25,480 - __main__ - INFO - Analyzing email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:21:25,480 - __main__ - ERROR - Error during email analysis: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 354, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 269, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:21:25,496 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:21:25] "POST / HTTP/1.1" 200 -
+2025-06-16 12:21:25,555 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:21:25] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:21:29,033 - __main__ - INFO - Starting index route processing
+2025-06-16 12:21:30,247 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:21:30,247 - __main__ - INFO - Processing POST request
+2025-06-16 12:21:30,263 - __main__ - INFO - Analyzing email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:21:30,265 - __main__ - ERROR - Error during email analysis: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 354, in index
+    email_info = get_email_analysis(email)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 269, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:21:30,265 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:21:30] "POST / HTTP/1.1" 200 -
+2025-06-16 12:21:30,285 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:21:30] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:21:56,751 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:21:56,835 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:21:57,173 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:21:57,180 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:21:57,182 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:22:01,732 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:22:01,752 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:22:02,083 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:22:02,091 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:22:02,094 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:22:04,352 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:22:04,365 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:22:04,365 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:22:04,367 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:22:04,705 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:22:04,707 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:22:04,707 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:22:12,382 - __main__ - INFO - Starting index route processing
+2025-06-16 12:22:13,653 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:22:13,653 - __main__ - INFO - Processing GET request
+2025-06-16 12:22:13,681 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:22:13] "GET / HTTP/1.1" 200 -
+2025-06-16 12:22:13,726 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:22:13] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:22:18,481 - __main__ - INFO - Starting index route processing
+2025-06-16 12:22:19,614 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:22:19,615 - __main__ - INFO - Processing POST request
+2025-06-16 12:22:19,618 - __main__ - INFO - Analyzing email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:22:19,618 - __main__ - INFO - Starting email analysis for: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:22:19,620 - __main__ - ERROR - Unexpected error in email analysis: 'EmailUtils' object has no attribute 'is_valid_email'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 272, in get_email_analysis
+    if not is_valid_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 95, in is_valid_email
+    return email_utils.is_valid_email(email)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EmailUtils' object has no attribute 'is_valid_email'
+
+2025-06-16 12:22:19,626 - __main__ - ERROR - Email analysis returned error: Error analyzing email: 'EmailUtils' object has no attribute 'is_valid_email'
+2025-06-16 12:22:19,626 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:22:19] "POST / HTTP/1.1" 200 -
+2025-06-16 12:22:19,643 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:22:19] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:22:35,821 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:22:35,858 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:22:36,153 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:22:36,169 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:22:36,169 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:22:43,871 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:22:43,885 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:22:43,885 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:22:43,887 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:22:44,211 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:22:44,216 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:22:44,216 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:22:46,180 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:22:46,228 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:22:46,541 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:22:46,549 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:22:46,554 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:22:46,583 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:22:46,620 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:22:46,930 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:22:46,946 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:22:46,946 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:22:49,724 - __main__ - INFO - Starting index route processing
+2025-06-16 12:22:50,845 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:22:50,845 - __main__ - INFO - Processing POST request
+2025-06-16 12:22:50,845 - __main__ - INFO - Analyzing email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:22:50,845 - __main__ - INFO - Starting email analysis for: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:22:50,845 - __main__ - INFO - Analyzing domain: vitstudent.ac.in
+2025-06-16 12:22:59,095 - __main__ - INFO - Domain analysis completed
+2025-06-16 12:22:59,097 - __main__ - INFO - Analyzing email pattern
+2025-06-16 12:22:59,097 - __main__ - ERROR - Error in pattern analysis: 'EmailUtils' object has no attribute 'analyze_email_pattern'
+2025-06-16 12:22:59,097 - __main__ - INFO - Checking breach information
+2025-06-16 12:22:59,097 - __main__ - INFO - Breach check completed
+2025-06-16 12:22:59,097 - __main__ - INFO - Getting personal information
+2025-06-16 12:23:10,279 - __main__ - INFO - Personal info retrieval completed
+2025-06-16 12:23:10,279 - __main__ - INFO - Checking website presence
+2025-06-16 12:23:22,647 - __main__ - INFO - Website presence check completed
+2025-06-16 12:23:22,647 - __main__ - INFO - Calculating risk score
+2025-06-16 12:23:22,647 - __main__ - ERROR - Error in risk assessment: 'list' object has no attribute 'get'
+2025-06-16 12:23:22,647 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:23:22,647 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:23:22,696 - __main__ - ERROR - Error during email analysis: 'dict object' has no attribute 'domain_info'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 422, in index
+    return render_template('index.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+           ^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\templates\index.html", line 193, in top-level template code
+    <div class="font-semibold">{{ email_info.domain_analysis.domain_info.type }}</div>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'domain_info'
+
+2025-06-16 12:23:22,696 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:23:22] "POST / HTTP/1.1" 200 -
+2025-06-16 12:23:22,814 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:23:22] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:23:39,357 - __main__ - INFO - Starting index route processing
+2025-06-16 12:23:40,441 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:23:40,442 - __main__ - INFO - Processing POST request
+2025-06-16 12:23:40,443 - __main__ - INFO - Analyzing email: kvthegreat1310@gmail.com
+2025-06-16 12:23:40,443 - __main__ - INFO - Starting email analysis for: kvthegreat1310@gmail.com
+2025-06-16 12:23:40,444 - __main__ - INFO - Analyzing domain: gmail.com
+2025-06-16 12:23:46,729 - __main__ - INFO - Domain analysis completed
+2025-06-16 12:23:46,730 - __main__ - INFO - Analyzing email pattern
+2025-06-16 12:23:46,731 - __main__ - ERROR - Error in pattern analysis: 'EmailUtils' object has no attribute 'analyze_email_pattern'
+2025-06-16 12:23:46,731 - __main__ - INFO - Checking breach information
+2025-06-16 12:23:46,731 - __main__ - INFO - Breach check completed
+2025-06-16 12:23:46,731 - __main__ - INFO - Getting personal information
+2025-06-16 12:23:58,480 - __main__ - INFO - Personal info retrieval completed
+2025-06-16 12:23:58,480 - __main__ - INFO - Checking website presence
+2025-06-16 12:24:17,444 - __main__ - INFO - Website presence check completed
+2025-06-16 12:24:17,445 - __main__ - INFO - Calculating risk score
+2025-06-16 12:24:17,446 - __main__ - ERROR - Error in risk assessment: 'list' object has no attribute 'get'
+2025-06-16 12:24:17,446 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:24:17,446 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:24:17,446 - __main__ - ERROR - Error during email analysis: 'dict object' has no attribute 'domain_info'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 422, in index
+    return render_template('index.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+           ^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\templates\index.html", line 193, in top-level template code
+    <div class="font-semibold">{{ email_info.domain_analysis.domain_info.type }}</div>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'domain_info'
+
+2025-06-16 12:24:17,446 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:24:17] "POST / HTTP/1.1" 200 -
+2025-06-16 12:24:17,481 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:24:17] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:24:47,526 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:24:47,607 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:24:47,929 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:24:47,929 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:24:47,929 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:24:55,550 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:24:55,562 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:24:55,562 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:24:55,567 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:24:55,916 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:24:55,932 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:24:55,932 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:25:00,496 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:25:00,533 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:25:00,845 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:25:00,854 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:25:00,860 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:25:01,221 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:25:01,257 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:25:01,574 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:25:01,591 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:25:01,591 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:25:06,571 - __main__ - INFO - Starting index route processing
+2025-06-16 12:25:08,015 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:25:08,015 - __main__ - INFO - Processing POST request
+2025-06-16 12:25:08,015 - __main__ - INFO - Analyzing email: kvthegreat1310@gmail.com
+2025-06-16 12:25:08,015 - __main__ - INFO - Starting email analysis for: kvthegreat1310@gmail.com
+2025-06-16 12:25:08,018 - __main__ - INFO - Analyzing domain: gmail.com
+2025-06-16 12:25:14,371 - __main__ - INFO - Domain analysis completed
+2025-06-16 12:25:14,371 - __main__ - INFO - Analyzing email pattern
+2025-06-16 12:25:14,371 - __main__ - INFO - Starting pattern analysis for email: kvthegreat1310@gmail.com
+2025-06-16 12:25:14,371 - __main__ - INFO - Pattern analysis completed successfully
+2025-06-16 12:25:14,371 - __main__ - INFO - Pattern analysis completed
+2025-06-16 12:25:14,371 - __main__ - INFO - Checking breach information
+2025-06-16 12:25:14,371 - __main__ - INFO - Breach check completed
+2025-06-16 12:25:14,371 - __main__ - INFO - Getting personal information
+2025-06-16 12:25:25,623 - __main__ - INFO - Personal info retrieval completed
+2025-06-16 12:25:25,625 - __main__ - INFO - Checking website presence
+2025-06-16 12:25:38,838 - __main__ - INFO - Website presence check completed
+2025-06-16 12:25:38,838 - __main__ - INFO - Calculating risk score
+2025-06-16 12:25:38,838 - __main__ - ERROR - Error in risk assessment: 'list' object has no attribute 'get'
+2025-06-16 12:25:38,838 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:25:38,838 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:25:38,888 - __main__ - ERROR - Error during email analysis: 'dict object' has no attribute 'domain_info'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 473, in index
+    return render_template('index.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+           ^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\templates\index.html", line 193, in top-level template code
+    <div class="font-semibold">{{ email_info.domain_analysis.domain_info.type }}</div>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'domain_info'
+
+2025-06-16 12:25:38,888 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:25:38] "POST / HTTP/1.1" 200 -
+2025-06-16 12:25:38,987 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:25:38] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:25:44,381 - __main__ - INFO - Starting index route processing
+2025-06-16 12:25:45,163 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:25:45,164 - __main__ - INFO - Processing POST request
+2025-06-16 12:25:45,164 - __main__ - INFO - Analyzing email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:25:45,164 - __main__ - INFO - Starting email analysis for: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:25:45,165 - __main__ - INFO - Analyzing domain: vitstudent.ac.in
+2025-06-16 12:25:51,808 - __main__ - INFO - Domain analysis completed
+2025-06-16 12:25:51,808 - __main__ - INFO - Analyzing email pattern
+2025-06-16 12:25:51,808 - __main__ - INFO - Starting pattern analysis for email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:25:51,808 - __main__ - INFO - Pattern analysis completed successfully
+2025-06-16 12:25:51,808 - __main__ - INFO - Pattern analysis completed
+2025-06-16 12:25:51,808 - __main__ - INFO - Checking breach information
+2025-06-16 12:25:51,808 - __main__ - INFO - Breach check completed
+2025-06-16 12:25:51,808 - __main__ - INFO - Getting personal information
+2025-06-16 12:26:00,195 - __main__ - INFO - Personal info retrieval completed
+2025-06-16 12:26:00,198 - __main__ - INFO - Checking website presence
+2025-06-16 12:26:08,140 - __main__ - INFO - Website presence check completed
+2025-06-16 12:26:08,141 - __main__ - INFO - Calculating risk score
+2025-06-16 12:26:08,141 - __main__ - ERROR - Error in risk assessment: 'list' object has no attribute 'get'
+2025-06-16 12:26:08,143 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:26:08,143 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:26:08,145 - __main__ - ERROR - Error during email analysis: 'dict object' has no attribute 'domain_info'
+Traceback (most recent call last):
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\app.py", line 473, in index
+    return render_template('index.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+           ^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\keert\OneDrive\Desktop\ospc\Cyber_Sec_PROJECTS\Merged\templates\index.html", line 193, in top-level template code
+    <div class="font-semibold">{{ email_info.domain_analysis.domain_info.type }}</div>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\keert\AppData\Roaming\Python\Python312\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'domain_info'
+
+2025-06-16 12:26:08,146 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:26:08] "POST / HTTP/1.1" 200 -
+2025-06-16 12:26:08,170 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:26:08] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:27:28,993 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:27:29,031 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:27:29,323 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:27:29,323 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:27:29,323 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:27:34,483 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:27:34,495 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 12:27:34,495 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-16 12:27:34,499 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:27:34,818 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:27:34,824 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:27:34,827 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:27:37,149 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:27:37,185 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:27:37,195 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:27:37,234 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:27:37,507 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:27:37,515 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:27:37,518 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:27:37,550 - __main__ - INFO - All modules initialized successfully
+2025-06-16 12:27:37,557 - werkzeug - WARNING -  * Debugger is active!
+2025-06-16 12:27:37,561 - werkzeug - INFO -  * Debugger PIN: 694-496-457
+2025-06-16 12:27:49,226 - __main__ - INFO - Starting index route processing
+2025-06-16 12:27:50,444 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:27:50,444 - __main__ - INFO - Processing POST request
+2025-06-16 12:27:50,459 - __main__ - INFO - Analyzing email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:27:50,459 - __main__ - INFO - Starting email analysis for: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:27:50,459 - __main__ - INFO - Analyzing domain: vitstudent.ac.in
+2025-06-16 12:27:57,097 - __main__ - INFO - Domain analysis completed
+2025-06-16 12:27:57,097 - __main__ - INFO - Analyzing email pattern
+2025-06-16 12:27:57,097 - __main__ - INFO - Starting pattern analysis for email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:27:57,097 - __main__ - INFO - Pattern analysis completed successfully
+2025-06-16 12:27:57,097 - __main__ - INFO - Pattern analysis completed
+2025-06-16 12:27:57,108 - __main__ - INFO - Checking breach information
+2025-06-16 12:27:57,108 - __main__ - INFO - Breach check completed
+2025-06-16 12:27:57,108 - __main__ - INFO - Getting personal information
+2025-06-16 12:28:09,726 - __main__ - INFO - Personal info retrieval completed
+2025-06-16 12:28:09,726 - __main__ - INFO - Checking website presence
+2025-06-16 12:28:22,143 - __main__ - INFO - Website presence check completed
+2025-06-16 12:28:22,143 - __main__ - INFO - Calculating risk score
+2025-06-16 12:28:22,143 - __main__ - INFO - Risk assessment completed
+2025-06-16 12:28:22,143 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:28:22,143 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:28:22,196 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:28:22] "POST / HTTP/1.1" 200 -
+2025-06-16 12:28:22,292 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:28:22] "GET /static/css/ospc.css HTTP/1.1" 200 -
+2025-06-16 12:29:34,403 - __main__ - INFO - Starting index route processing
+2025-06-16 12:29:35,778 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:29:35,778 - __main__ - INFO - Processing POST request
+2025-06-16 12:29:35,792 - __main__ - INFO - Analyzing email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:29:35,793 - __main__ - INFO - Starting email analysis for: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:29:35,793 - __main__ - INFO - Analyzing domain: vitstudent.ac.in
+2025-06-16 12:29:44,610 - __main__ - WARNING - Error getting SPF record for vitstudent.ac.in: The DNS operation timed out after 5.0128724575042725 seconds
+2025-06-16 12:29:46,829 - __main__ - INFO - Domain analysis completed
+2025-06-16 12:29:46,831 - __main__ - INFO - Analyzing email pattern
+2025-06-16 12:29:46,831 - __main__ - INFO - Starting pattern analysis for email: keerthivasan.e2023@vitstudent.ac.in
+2025-06-16 12:29:46,831 - __main__ - INFO - Pattern analysis completed successfully
+2025-06-16 12:29:46,831 - __main__ - INFO - Pattern analysis completed
+2025-06-16 12:29:46,831 - __main__ - INFO - Checking breach information
+2025-06-16 12:29:46,831 - __main__ - INFO - Breach check completed
+2025-06-16 12:29:46,831 - __main__ - INFO - Getting personal information
+2025-06-16 12:29:57,864 - __main__ - INFO - Personal info retrieval completed
+2025-06-16 12:29:57,865 - __main__ - INFO - Checking website presence
+2025-06-16 12:30:10,597 - __main__ - INFO - Website presence check completed
+2025-06-16 12:30:10,597 - __main__ - INFO - Calculating risk score
+2025-06-16 12:30:10,597 - __main__ - INFO - Risk assessment completed
+2025-06-16 12:30:10,597 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:30:10,597 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:30:10,597 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:30:10] "POST / HTTP/1.1" 200 -
+2025-06-16 12:30:10,627 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:30:10] "GET /static/css/ospc.css HTTP/1.1" 200 -
+2025-06-16 12:30:57,812 - __main__ - INFO - Starting index route processing
+2025-06-16 12:30:58,966 - __main__ - INFO - Successfully fetched 5 news items
+2025-06-16 12:30:58,976 - __main__ - INFO - Processing POST request
+2025-06-16 12:30:58,976 - __main__ - INFO - Analyzing email: _keerthivasan_e@gmail.com
+2025-06-16 12:30:58,977 - __main__ - INFO - Starting email analysis for: _keerthivasan_e@gmail.com
+2025-06-16 12:30:58,977 - __main__ - INFO - Analyzing domain: gmail.com
+2025-06-16 12:31:05,301 - __main__ - INFO - Domain analysis completed
+2025-06-16 12:31:05,301 - __main__ - INFO - Analyzing email pattern
+2025-06-16 12:31:05,301 - __main__ - INFO - Starting pattern analysis for email: _keerthivasan_e@gmail.com
+2025-06-16 12:31:05,301 - __main__ - INFO - Pattern analysis completed successfully
+2025-06-16 12:31:05,301 - __main__ - INFO - Pattern analysis completed
+2025-06-16 12:31:05,301 - __main__ - INFO - Checking breach information
+2025-06-16 12:31:05,301 - __main__ - INFO - Breach check completed
+2025-06-16 12:31:05,301 - __main__ - INFO - Getting personal information
+2025-06-16 12:31:13,427 - __main__ - INFO - Personal info retrieval completed
+2025-06-16 12:31:13,427 - __main__ - INFO - Checking website presence
+2025-06-16 12:31:22,027 - __main__ - INFO - Website presence check completed
+2025-06-16 12:31:22,027 - __main__ - INFO - Calculating risk score
+2025-06-16 12:31:22,027 - __main__ - INFO - Risk assessment completed
+2025-06-16 12:31:22,027 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:31:22,027 - __main__ - INFO - Email analysis completed successfully
+2025-06-16 12:31:22,027 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:31:22] "POST / HTTP/1.1" 200 -
+2025-06-16 12:31:22,065 - werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 12:31:22] "[36mGET /static/css/ospc.css HTTP/1.1[0m" 304 -
+2025-06-16 12:33:24,070 - werkzeug - INFO -  * Detected change in 'C:\\Users\\keert\\OneDrive\\Desktop\\ospc\\Cyber_Sec_PROJECTS\\Merged\\app.py', reloading
+2025-06-16 12:33:24,120 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:33:42,196 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:34:49,662 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:35:18,626 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:35:38,779 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 12:35:42,559 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 15:02:23,549 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 15:02:46,577 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 15:03:08,490 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 15:04:07,508 - werkzeug - INFO -  * Restarting with stat
+2025-06-16 15:04:26,623 - werkzeug - INFO -  * Restarting with stat

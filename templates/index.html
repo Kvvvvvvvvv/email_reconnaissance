@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }} - Email Reconnaissance</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/ospc.css') }}" rel="stylesheet">
+</head>
+<body class="cyber-body">
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-wrapper">
+                <div class="logo-container">
+                    <img src="{{ url_for('static', filename='images/logo.webp') }}" alt="OSPC Logo" class="logo">
+                </div>
+            </div>
+            <h1>Email Reconnaissance</h1>
+            <p>Advanced Email Analysis & Security Assessment</p>
+        </header>
+
+        <!-- Search Form -->
+        <div class="search-container">
+            <form method="POST" action="/" class="cyber-form" id="analysisForm">
+                <div class="input-group">
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           class="cyber-input"
+                           placeholder="Enter email address..."
+                           required>
+                    <button type="submit" class="cyber-button">
+                        <span>Analyze</span>
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Error Message -->
+        {% if error_message %}
+        <div class="error-container">
+            <div class="cyber-alert error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>{{ error_message }}</span>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Results Section -->
+        {% if email_info %}
+        <!-- Hidden data for JavaScript -->
+        <div id="email-data" style="display: none;">{{ email_info|tojson|safe }}</div>
+        
+        <div class="results-container">
+            <!-- Domain Analysis Section -->
+            <div class="cyber-card">
+                <div class="card-header">
+                    <i class="fas fa-globe"></i>
+                    <h2>Domain Analysis</h2>
+                </div>
+                <div class="card-content">
+                    <div class="info-grid mb-4 divide-y divide-cyan-800 bg-gray-900 rounded-lg shadow p-4">
+                        {% if email_info.domain_analysis.domain %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Domain</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.domain_info.type and email_info.domain_analysis.domain_info.type != 'Unknown' %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Type</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain_info.type }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.domain_info.provider and email_info.domain_analysis.domain_info.provider != 'Unknown' %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Provider</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain_info.provider }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.domain_info.features and email_info.domain_analysis.domain_info.features|length > 0 %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Features</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain_info.features|join(', ') }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.domain_info.reliability and email_info.domain_analysis.domain_info.reliability != 'Unknown' %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Reliability</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain_info.reliability }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.domain_info.age and email_info.domain_analysis.domain_info.age != 'Unknown' %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Domain Age</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain_info.age }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.domain_info.creation_date and email_info.domain_analysis.domain_info.creation_date != 'Unknown' %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Creation Date</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain_info.creation_date }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.domain_info.expiration_date and email_info.domain_analysis.domain_info.expiration_date != 'Unknown' %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Expiry Date</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain_info.expiration_date }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.domain_info.registrar and email_info.domain_analysis.domain_info.registrar != 'Unknown' %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Registrar</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain_info.registrar }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.domain_info.last_updated and email_info.domain_analysis.domain_info.last_updated != 'Unknown' %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">Last Updated</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.domain_info.last_updated }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.dns_info.a_records and email_info.domain_analysis.dns_info.a_records|length > 0 %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">A Records</span>
+                            <span class="value text-white">{{ email_info.domain_analysis.dns_info.a_records|join(', ') }}</span>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.subdomains and email_info.domain_analysis.subdomains|length > 0 %}
+                        <div class="py-2 flex flex-col">
+                            <span class="label font-semibold text-cyan-200 mb-1">Active Subdomains</span>
+                            <div class="bg-gray-800 rounded p-2 max-h-32 overflow-y-auto text-xs text-cyan-100">
+                                {% for sub in email_info.domain_analysis.subdomains %}
+                                <div>{{ sub }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.blacklist %}
+                        <div class="py-2 flex flex-col">
+                            <span class="label font-semibold text-cyan-200 mb-1">Blacklist Status</span>
+                            {% set bl_count = email_info.domain_analysis.blacklist.values()|select('equalto', True)|list|length %}
+                            {% if bl_count == 0 %}
+                            <span class="inline-block bg-green-700 text-white px-3 py-1 rounded font-bold text-center">Not blacklisted</span>
+                            {% else %}
+                            <span class="inline-block bg-red-700 text-white px-3 py-1 rounded font-bold text-center">Blacklisted on {{ bl_count }} list{{ 's' if bl_count > 1 else '' }}</span>
+                            <div class="text-xs text-red-300 mt-1">{{ email_info.domain_analysis.blacklist|dictsort if bl_count > 0 }}</div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.caa_records and email_info.domain_analysis.caa_records|length > 0 %}
+                        <div class="py-2 flex flex-col">
+                            <span class="label font-semibold text-cyan-200 mb-1">CAA Records</span>
+                            <ul class="text-xs text-cyan-100">
+                                {% for caa in email_info.domain_analysis.caa_records %}
+                                <li>{{ caa }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        {% if email_info.domain_analysis.security_info.ssl_chain_trusted is defined %}
+                        <div class="py-2 flex justify-between items-center">
+                            <span class="label font-semibold text-cyan-200">SSL Chain Trusted</span>
+                            {% if email_info.domain_analysis.security_info.ssl_chain_trusted %}
+                            <span class="inline-block bg-green-700 text-white px-3 py-1 rounded font-bold">Trusted</span>
+                            {% else %}
+                            <span class="inline-block bg-red-700 text-white px-3 py-1 rounded font-bold">Not Trusted</span>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-semibold text-cyan-300 mb-4 border-b border-cyan-700 pb-1 text-lg">DNS & Security</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <!-- DNS Records -->
+                            <div class="bg-gray-900 rounded-lg p-4 shadow">
+                                <h4 class="text-cyan-200 font-bold mb-4 text-base">DNS Records</h4>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                        <span class="font-bold text-cyan-200">MX</span>
+                                        <span class="{{ 'text-green-400' if email_info.domain_analysis.dns_info.has_mx else 'text-red-400' }} font-semibold">{{ 'Yes' if email_info.domain_analysis.dns_info.has_mx else 'No' }}</span>
+                                    </div>
+                                    {% if email_info.domain_analysis.dns_info.mx_records %}
+                                    <div class="text-xs text-gray-400 mb-2">{{ email_info.domain_analysis.dns_info.mx_records|join(', ') }}</div>
+                                    {% endif %}
+                                    <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                        <span class="font-bold text-cyan-200">SPF</span>
+                                        <span class="{{ 'text-green-400' if email_info.domain_analysis.dns_info.has_spf else 'text-red-400' }} font-semibold">{{ 'Yes' if email_info.domain_analysis.dns_info.has_spf else 'No' }}</span>
+                                    </div>
+                                    {% if email_info.domain_analysis.dns_info.spf_record %}
+                                    <div class="text-xs text-gray-400 mb-2">{{ email_info.domain_analysis.dns_info.spf_record }}</div>
+                                    {% endif %}
+                                    <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                        <span class="font-bold text-cyan-200">DMARC</span>
+                                        <span class="{{ 'text-green-400' if email_info.domain_analysis.dns_info.has_dmarc else 'text-red-400' }} font-semibold">{{ 'Yes' if email_info.domain_analysis.dns_info.has_dmarc else 'No' }}</span>
+                                    </div>
+                                    {% if email_info.domain_analysis.dns_info.dmarc_record %}
+                                    <div class="text-xs text-gray-400 mb-2">{{ email_info.domain_analysis.dns_info.dmarc_record }}</div>
+                                    {% endif %}
+                                    <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                        <span class="font-bold text-cyan-200">DKIM</span>
+                                        <span class="{{ 'text-green-400' if email_info.domain_analysis.dns_info.has_dkim else 'text-red-400' }} font-semibold">{{ 'Yes' if email_info.domain_analysis.dns_info.has_dkim else 'No' }}</span>
+                                    </div>
+                                    {% if email_info.domain_analysis.dns_info.dkim_records and email_info.domain_analysis.dns_info.dkim_records|length > 0 %}
+                                    <div class="space-y-2 mt-2">
+                                        {% for dkim in email_info.domain_analysis.dns_info.dkim_records %}
+                                        <div class="bg-gray-800 rounded p-3 border border-cyan-700">
+                                            <div class="flex justify-between items-center mb-2">
+                                                <span class="font-semibold text-cyan-300 text-sm">Selector: {{ dkim.selector }}</span>
+                                                <span class="text-green-400 text-xs">✓ Valid</span>
+                                            </div>
+                                            {% if dkim.parsed %}
+                                            <div class="space-y-1 text-xs">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-400">Version:</span>
+                                                    <span class="text-white font-mono">{{ dkim.parsed.version }}</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-400">Key Type:</span>
+                                                    <span class="text-white font-mono">{{ dkim.parsed.key_type }}</span>
+                                                </div>
+                                                {% if dkim.parsed.notes %}
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-400">Notes:</span>
+                                                    <span class="text-white">{{ dkim.parsed.notes }}</span>
+                                                </div>
+                                                {% endif %}
+                                                <div class="mt-2 pt-2 border-t border-gray-700">
+                                                    <div class="text-gray-400 mb-1">Public Key (truncated):</div>
+                                                    <div class="bg-gray-900 p-2 rounded font-mono text-xs text-cyan-300 break-all">
+                                                        {{ dkim.parsed.public_key[:50] }}...
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% else %}
+                                            <div class="text-xs text-gray-400 break-all">
+                                                {{ dkim.record }}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    {% if email_info.domain_analysis.dns_info.rdns and email_info.domain_analysis.dns_info.rdns|length > 0 %}
+                                    <div class="border-b border-cyan-800 pb-2">
+                                        <span class="font-bold text-cyan-200">Reverse DNS (rDNS):</span>
+                                        <ul class="text-xs text-gray-300 mt-1">
+                                            {% for entry in email_info.domain_analysis.dns_info.rdns %}
+                                            <li><span class="font-semibold">{{ entry.ip }}</span>: {{ entry.rdns }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                    {% if email_info.domain_analysis.dns_info.ptr_records and email_info.domain_analysis.dns_info.ptr_records|length > 0 %}
+                                    <div class="border-b border-cyan-800 pb-2">
+                                        <span class="font-bold text-cyan-200">PTR Records:</span>
+                                        <ul class="text-xs text-gray-300 mt-1">
+                                            {% for entry in email_info.domain_analysis.dns_info.ptr_records %}
+                                            <li><span class="font-semibold">{{ entry.ip }}</span>: {{ entry.ptr|join(', ') }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <!-- SSL & Security -->
+                            <div class="bg-gray-900 rounded-lg p-4 shadow flex flex-col justify-between">
+                                <div>
+                                    <h4 class="text-cyan-200 font-bold mb-4 text-base">SSL & Security</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                            <span class="font-bold text-cyan-200">SSL Enabled</span>
+                                            <span class="{{ 'text-green-400' if email_info.domain_analysis.security_info.ssl_enabled else 'text-red-400' }} font-semibold">{{ 'Yes' if email_info.domain_analysis.security_info.ssl_enabled else 'No' }}</span>
+                                        </div>
+                                        <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                            <span class="font-bold text-cyan-200">SSL Grade</span>
+                                            <span class="text-cyan-300 font-semibold">{{ email_info.domain_analysis.security_info.ssl_grade }}</span>
+                                        </div>
+                                        {% if email_info.domain_analysis.security_info.ssl_issuer %}
+                                        <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                            <span class="font-bold text-cyan-200">SSL Issuer</span>
+                                            <span class="text-white font-semibold">{{ email_info.domain_analysis.security_info.ssl_issuer }}</span>
+                                        </div>
+                                        {% endif %}
+                                        {% if email_info.domain_analysis.security_info.ssl_expiry %}
+                                        <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                            <span class="font-bold text-cyan-200">SSL Expiry</span>
+                                            <span class="text-white font-semibold">{{ email_info.domain_analysis.security_info.ssl_expiry }}</span>
+                                        </div>
+                                        {% endif %}
+                                        <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                            <span class="font-bold text-cyan-200">SSL Wildcard</span>
+                                            <span class="{{ 'text-green-400' if email_info.domain_analysis.security_info.ssl_wildcard else 'text-red-400' }} font-semibold">{{ 'Yes' if email_info.domain_analysis.security_info.ssl_wildcard else 'No' }}</span>
+                                        </div>
+                                        <div class="flex justify-between items-center border-b border-cyan-800 pb-2">
+                                            <span class="font-bold text-cyan-200">Security Policy</span>
+                                            <span class="{{ 'text-green-400' if email_info.domain_analysis.security_info.has_security_policy else 'text-red-400' }} font-semibold">{{ 'Yes' if email_info.domain_analysis.security_info.has_security_policy else 'No' }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex flex-col items-center justify-center">
+                                    <div class="bg-cyan-900 rounded-lg px-6 py-4 mt-2 flex flex-col items-center w-full">
+                                        <span class="font-bold text-cyan-200 text-lg">Security Score</span>
+                                        <span class="text-cyan-300 text-2xl font-extrabold">{{ email_info.domain_analysis.security_info.score }}/100</span>
+                                        <span class="text-cyan-400 text-base mt-1">{{ email_info.domain_analysis.security_info.rating }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="font-semibold text-cyan-300 mb-2 border-b border-cyan-700 pb-1">Domain Data Breach Status</h3>
+                        {% set domain_breached = false %}
+                        {% if email_info.breach_info and email_info.breach_info.breaches %}
+                            {% for breach in email_info.breach_info.breaches %}
+                                {% if breach.domain and breach.domain == email_info.domain_analysis.domain %}
+                                    {% set domain_breached = true %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% if domain_breached %}
+                            <div class="w-full flex justify-center">
+                                <span class="inline-block bg-red-700 text-white px-6 py-2 rounded font-bold text-lg text-center w-full">Data Breach Found for Domain</span>
+                            </div>
+                        {% else %}
+                            <div class="w-full flex justify-center">
+                                <span class="block w-full text-center font-extrabold text-2xl py-4 bg-green-700 text-white rounded shadow-lg tracking-wide uppercase">NO DATA BREACH FOR DOMAIN</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Pattern Analysis Section -->
+            {% if email_info.email_analysis and email_info.email_analysis.entropy_analysis %}
+            <div class="cyber-card">
+                <div class="card-header">
+                    <i class="fas fa-fingerprint"></i>
+                    <h2>Email Pattern Analysis</h2>
+                </div>
+                <div class="card-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Pattern Score</span>
+                            <span class="value score">{{ email_info.email_analysis.entropy_analysis.entropy_score|round(1) }}/100</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Pattern Type</span>
+                            <span class="value">{{ 'Random' if email_info.email_analysis.entropy_analysis.is_likely_random else 'Standard' }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Special Characters</span>
+                            <span class="value">{{ 'Yes' if email_info.email_analysis.entropy_analysis.character_distribution.special > 0 else 'No' }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Randomness</span>
+                            <span class="value">{{ email_info.email_analysis.entropy_analysis.randomness_confidence|round(1) }}% Confidence</span>
+                        </div>
+                        {% if email_info.email_analysis.entropy_analysis.patterns_detected %}
+                        <div class="info-item span-full">
+                            <span class="label">Detected Patterns</span>
+                            <div class="pattern-list">
+                                {% for pattern, detected in email_info.email_analysis.entropy_analysis.patterns_detected.items() %}
+                                    {% if detected %}
+                                    <span class="pattern-tag">{{ pattern|title }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="info-item span-full">
+                            <span class="label">Character Distribution</span>
+                            <div class="char-dist">
+                                <div class="dist-item">
+                                    <span>Letters: {{ email_info.email_analysis.entropy_analysis.character_distribution.letters }}</span>
+                                </div>
+                                <div class="dist-item">
+                                    <span>Digits: {{ email_info.email_analysis.entropy_analysis.character_distribution.digits }}</span>
+                                </div>
+                                <div class="dist-item">
+                                    <span>Special: {{ email_info.email_analysis.entropy_analysis.character_distribution.special }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Risk Assessment Section -->
+            {% if email_info.risk_score is defined %}
+            <div class="cyber-card">
+                <div class="card-header">
+                    <h2>Risk Assessment</h2>
+                    <div class="risk-indicator {{ email_info.risk_level.lower() }}">
+                        <span class="risk-score">{{ email_info.risk_score }}/100</span>
+                        <span class="risk-level">{{ email_info.risk_level }}</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="chart-container" style="height: 300px; margin: 1rem 0;">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                    
+                    {% if email_info.risk_factors %}
+                    <div class="risk-factors">
+                        <h3>Risk Factors</h3>
+                        {% for factor in email_info.risk_factors %}
+                        <div class="risk-factor {{ factor.severity }}">
+                            <span class="factor-name">{{ factor.factor }}</span>
+                            <span class="factor-score">{{ factor.score }} points</span>
+                            <span class="factor-severity">{{ factor.severity }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Personal Information Section -->
+            <div class="cyber-card">
+                <div class="card-header">
+                    <i class="fas fa-user"></i>
+                    <h2>Personal Information</h2>
+                </div>
+                <div class="card-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Name</span>
+                            <span class="value">{{ email_info.personal_info.name }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Location</span>
+                            <span class="value">{{ email_info.personal_info.location }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Social Profiles</span>
+                            <span class="value">
+                                {% if email_info.personal_info.social_profiles %}
+                                {{ email_info.personal_info.social_profiles|join(', ') }}
+                                {% else %}
+                                None found
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Additional Info</span>
+                            <span class="value">{{ email_info.personal_info.additional_info }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Website Presence Section -->
+            {% if email_info.website_presence is defined and email_info.website_presence %}
+            <div class="cyber-card">
+                <div class="card-header">
+                    <i class="fas fa-globe"></i>
+                    <h2>Website Presence</h2>
+                </div>
+                <div class="card-content">
+                    {% if email_info.website_presence.found_accounts %}
+                        <ul>
+                        {% for account in email_info.website_presence.found_accounts %}
+                            <li>{{ account }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% else %}
+                        <span>No website presence found.</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Social Media Analysis Section -->
+            {% if email_info.social_media_analysis %}
+            <div class="cyber-card">
+                <div class="card-header">
+                    <h2>Social Media Analysis</h2>
+                </div>
+                <div class="card-content">
+                    <div class="analysis-summary">
+                        <div class="summary-item">
+                            <span class="label">Presence Score</span>
+                            <span class="value score">{{ email_info.social_media_analysis.summary.presence_score|round(1) }}%</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Presence Level</span>
+                            <span class="value level {{ email_info.social_media_analysis.summary.presence_level }}">{{ email_info.social_media_analysis.summary.presence_level|title }}</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Platforms Found</span>
+                            <span class="value">{{ email_info.social_media_analysis.summary.found_platforms }}/{{ email_info.social_media_analysis.summary.total_platforms }}</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Risk Level</span>
+                            <span class="value level {{ email_info.social_media_analysis.risk_analysis.overall_risk_level }}">{{ email_info.social_media_analysis.risk_analysis.overall_risk_level|title }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container" style="height: 300px; margin: 1rem 0;">
+                        <canvas id="socialMediaChart"></canvas>
+                    </div>
+                    
+                    {% if email_info.social_media_analysis.platforms %}
+                    <div class="platforms-section">
+                        <h3>Platform Details</h3>
+                        <div class="platforms-grid">
+                            {% for name, platform in email_info.social_media_analysis.platforms.items() %}
+                            <div class="platform-item {{ 'found' if platform.exists else 'not-found' }}">
+                                <span class="platform-name">{{ name.capitalize() }}</span>
+                                <span class="platform-status">{{ 'Found' if platform.exists else 'Not Found' }}</span>
+                                {% if platform.exists and platform.url %}
+                                <a href="{{ platform.url }}" target="_blank" class="platform-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if email_info.social_media_analysis.risk_analysis.recommendations %}
+                    <div class="recommendations-section">
+                        <h3>Recommendations</h3>
+                        <ul class="recommendations-list">
+                            {% for recommendation in email_info.social_media_analysis.risk_analysis.recommendations %}
+                            <li>{{ recommendation }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Breach Information Section -->
+            {% if email_info.breach_info.breaches %}
+            <div class="cyber-card">
+                <div class="card-header">
+                    <h2>Data Breach Analysis</h2>
+                    <div class="breach-count">
+                        <span class="count">{{ email_info.breach_info.breach_count }}</span>
+                        <span class="label">Breaches Found</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="chart-container" style="height: 300px; margin: 1rem 0;">
+                        <canvas id="breachChart"></canvas>
+                    </div>
+                    
+                    <div class="breaches-list">
+                        {% for breach in email_info.breach_info.breaches %}
+                        <div class="breach-item">
+                            <div class="breach-header">
+                                <h3 class="breach-name">{{ breach.name }}</h3>
+                                <span class="breach-date">{{ breach.date }}</span>
+                            </div>
+                            <div class="breach-details">
+                                <p><strong>Compromised Data:</strong> {{ breach.compromised_data|join(', ') }}</p>
+                                {% if breach.description %}
+                                <p><strong>Description:</strong> {{ breach.description }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- News Feed Section -->
+        {% if news_items %}
+        <div class="news-section">
+            <h2 class="section-title">Latest Cybersecurity News</h2>
+            <div class="news-grid">
+                {% for item in news_items[:6] %}
+                <div class="news-card">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                    <span class="news-date">{{ item.date }}</span>
+                    <a href="{{ item.link }}" target="_blank" class="news-source">Read More →</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Footer -->
+        <footer class="cyber-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="{{ url_for('static', filename='images/logo.webp') }}" alt="OSPC Logo" class="footer-logo-img">
+                </div>
+                <p class="version">Version {{ version }}</p>
+                <p class="copyright">&copy; {{ now.year }} {{ app_name }}. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Data Breach Modal -->
+        <div id="breachModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 hidden">
+          <div class="bg-gray-900 border-4 border-red-500 rounded-lg shadow-lg p-8 max-w-lg w-full text-center">
+            <h2 class="text-2xl font-bold text-red-400 mb-4 flex items-center justify-center gap-2">
+              <i class="fas fa-exclamation-triangle"></i> Data Breach Alert
+            </h2>
+            <div id="breachModalContent">
+              <!-- Content will be injected by JS -->
+            </div>
+            <div class="mt-6 flex justify-center gap-4">
+              <button id="closeBreachModal" class="px-6 py-2 bg-red-600 text-white rounded hover:bg-red-700 focus:outline-none">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects for cards
+            const cards = document.querySelectorAll('.cyber-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('hover');
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('hover');
+                });
+            });
+
+            // Initialize charts when analysis results are available
+            const emailDataElement = document.getElementById('email-data');
+            if (emailDataElement && emailDataElement.textContent) {
+                try {
+                    const emailInfo = JSON.parse(emailDataElement.textContent);
+                    initializeCharts(emailInfo);
+                } catch (e) {
+                    console.log('No analysis data available yet');
+                }
+            }
+        });
+
+        function initializeCharts(emailInfo) {
+            // Risk Score Chart
+            const riskChartCanvas = document.getElementById('riskChart');
+            if (riskChartCanvas) {
+                const riskCtx = riskChartCanvas.getContext('2d');
+                new Chart(riskCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Risk Score', 'Remaining'],
+                        datasets: [{
+                            data: [emailInfo.risk_score, 100 - emailInfo.risk_score],
+                            backgroundColor: [
+                                emailInfo.risk_score > 70 ? '#ff4444' : emailInfo.risk_score > 40 ? '#ff8800' : '#00ff00',
+                                '#333333'
+                            ],
+                            borderWidth: 3,
+                            borderColor: '#00ffcc'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#00ffcc',
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Social Media Chart
+            if (emailInfo.social_media_analysis) {
+                const socialChartCanvas = document.getElementById('socialMediaChart');
+                if (socialChartCanvas) {
+                    const socialCtx = socialChartCanvas.getContext('2d');
+                    const socialData = emailInfo.social_media_analysis.platforms;
+                    const foundCount = Object.values(socialData).filter(p => p.exists).length;
+                    const notFoundCount = Object.values(socialData).filter(p => !p.exists).length;
+                    
+                    new Chart(socialCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Found', 'Not Found'],
+                            datasets: [{
+                                label: 'Platforms',
+                                data: [foundCount, notFoundCount],
+                                backgroundColor: ['#00ff00', '#ff4444'],
+                                borderColor: '#00ffcc',
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        color: '#00ffcc',
+                                        font: {
+                                            size: 12
+                                        }
+                                    },
+                                    grid: {
+                                        color: 'rgba(0, 255, 204, 0.2)'
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        color: '#00ffcc',
+                                        font: {
+                                            size: 12
+                                        }
+                                    },
+                                    grid: {
+                                        color: 'rgba(0, 255, 204, 0.2)'
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: '#00ffcc',
+                                        font: {
+                                            size: 14
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            // Breach Analysis Chart
+            const breachChartCanvas = document.getElementById('breachChart');
+            if (breachChartCanvas && emailInfo.breach_info.breaches) {
+                const breachCtx = breachChartCanvas.getContext('2d');
+                const breachData = emailInfo.breach_info.breaches;
+                const breachYears = {};
+                
+                breachData.forEach(breach => {
+                    const year = breach.date.split('-')[0];
+                    breachYears[year] = (breachYears[year] || 0) + 1;
+                });
+
+                new Chart(breachCtx, {
+                    type: 'line',
+                    data: {
+                        labels: Object.keys(breachYears).sort(),
+                        datasets: [{
+                            label: 'Breaches per Year',
+                            data: Object.keys(breachYears).sort().map(year => breachYears[year]),
+                            borderColor: '#ff4444',
+                            backgroundColor: 'rgba(255, 68, 68, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: '#00ffcc',
+                                    font: {
+                                        size: 12
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(0, 255, 204, 0.2)'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#00ffcc',
+                                    font: {
+                                        size: 12
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(0, 255, 204, 0.2)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#00ffcc',
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Function to update charts when new analysis is performed
+        function updateCharts(emailInfo) {
+            // Destroy existing charts if they exist
+            if (window.riskChart) {
+                window.riskChart.destroy();
+            }
+            if (window.socialMediaChart) {
+                window.socialMediaChart.destroy();
+            }
+            if (window.breachChart) {
+                window.breachChart.destroy();
+            }
+            
+            // Initialize new charts
+            initializeCharts(emailInfo);
+        }
+
+        // Function to handle form submission and update charts
+        // Function to handle form submission
+        document.getElementById('analysisForm').onsubmit = function() {
+            const email = document.getElementById('email').value;
+            
+            if (!email) {
+                alert('Please enter an email address');
+                return;
+            }
+            
+            // Show loading state
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+            submitButton.disabled = true;
+            
+            // Submit form
+            fetch('/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(html => {
+                // Parse the response to extract the email data
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const emailDataElement = doc.getElementById('email-data');
+                
+                if (emailDataElement && emailDataElement.textContent) {
+                    try {
+                        const emailInfo = JSON.parse(emailDataElement.textContent);
+                        
+                        // Update the current page's email data
+                        const currentEmailData = document.getElementById('email-data');
+                        if (currentEmailData) {
+                            currentEmailData.textContent = JSON.stringify(emailInfo);
+                        }
+                        
+                        // Update charts
+                        updateCharts(emailInfo);
+                        
+                        // Scroll to results
+                        document.querySelector('.results-section').scrollIntoView({ 
+                            behavior: 'smooth' 
+                        });
+                        
+                    } catch (e) {
+                        console.error('Error parsing email data:', e);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during analysis. Please try again.');
+            })
+            .finally(() => {
+                // Restore button state
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            });
+        }
+
+        // Add event listener to form
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', handleAnalysisSubmit);
+            }
+        });
+
+        // Data Breach Modal Logic
+        function showBreachModal(contentHtml) {
+          const modal = document.getElementById('breachModal');
+          const content = document.getElementById('breachModalContent');
+          content.innerHTML = contentHtml;
+          modal.classList.remove('hidden');
+        }
+        document.getElementById('closeBreachModal').onclick = function() {
+          document.getElementById('breachModal').classList.add('hidden');
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+          // ... existing code ...
+          // Check for breach info and show modal if needed
+          const emailDataElement = document.getElementById('email-data');
+          if (emailDataElement && emailDataElement.textContent) {
+            try {
+              const emailInfo = JSON.parse(emailDataElement.textContent);
+              if (emailInfo && emailInfo.breach_info && emailInfo.breach_info.breaches && emailInfo.breach_info.breaches.length > 0) {
+                let html = `<div class='text-lg mb-2 text-red-300 font-semibold'>Yes, a data breach was found for this email!</div>`;
+                html += `<ul class='text-left text-white max-h-40 overflow-y-auto mb-2'>`;
+                emailInfo.breach_info.breaches.forEach(breach => {
+                  html += `<li class='mb-2'><span class='font-bold text-red-400'>${breach.name}</span> <span class='text-xs text-gray-400'>(${breach.date})</span><br><span class='text-sm'>${breach.description || ''}</span></li>`;
+                });
+                html += `</ul>`;
+                showBreachModal(html);
+              } else {
+                // Optionally, show a modal for no breach found
+                // let html = `<div class='text-lg mb-2 text-green-300 font-semibold'>No data breach found for this email.</div>`;
+                // showBreachModal(html);
+              }
+            } catch (e) { /* ignore */ }
+          }
+        });
+    </script>
+</body>
+</html>

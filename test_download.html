@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Report Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0f1c;
+            color: #00ffcc;
+            padding: 2rem;
+        }
+        .test-button {
+            background: #00ffcc;
+            color: #0a0f1c;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 1rem;
+        }
+        .test-button:hover {
+            background: #00cc99;
+        }
+    </style>
+</head>
+<body>
+    <h1>Download Report Test</h1>
+    <p>This page tests the download report functionality with sample data.</p>
+    
+    <button class="test-button" onclick="testDownload()">Test Download Report</button>
+    
+    <div id="email-data" style="display: none;">
+        {
+            "email": "test@example.com",
+            "risk_score": 75,
+            "risk_level": "High",
+            "risk_factors": [
+                {
+                    "factor": "High risk domain",
+                    "severity": "high",
+                    "score": 25
+                }
+            ],
+            "domain_analysis": {
+                "domain_info": {
+                    "type": "Corporate",
+                    "company": "Test Corp",
+                    "age": "5 years",
+                    "registrar": "Test Registrar"
+                }
+            },
+            "pattern_analysis": {
+                "score": 80,
+                "type": "Random",
+                "has_special_chars": true,
+                "is_random": true
+            },
+            "breach_info": {
+                "breach_count": 2,
+                "breaches": [
+                    {
+                        "name": "Test Breach 1",
+                        "date": "2023-01-15",
+                        "compromised_data": ["email", "password"]
+                    }
+                ]
+            },
+            "social_media_analysis": {
+                "summary": {
+                    "presence_score": 60,
+                    "presence_level": "Medium",
+                    "found_platforms": 3,
+                    "total_platforms": 5
+                },
+                "risk_analysis": {
+                    "overall_risk_level": "Medium"
+                },
+                "platforms": {
+                    "twitter": {"exists": true, "url": "https://twitter.com/test"},
+                    "facebook": {"exists": false, "url": null},
+                    "linkedin": {"exists": true, "url": "https://linkedin.com/in/test"}
+                }
+            },
+            "personal_info": {
+                "name": "Test User",
+                "location": "Test City",
+                "social_profiles": ["twitter", "linkedin"],
+                "additional_info": "Test additional info"
+            },
+            "website_presence": {
+                "found_accounts": ["github", "stackoverflow"],
+                "reputation": "Good"
+            }
+        }
+    </div>
+
+    <script>
+        function testDownload() {
+            console.log('Test download button clicked');
+            try {
+                const emailDataElement = document.getElementById('email-data');
+                console.log('Email data element:', emailDataElement);
+                
+                if (!emailDataElement || !emailDataElement.textContent) {
+                    console.log('No email data found');
+                    alert('No test data found');
+                    return;
+                }
+
+                console.log('Email data content:', emailDataElement.textContent);
+
+                let emailInfo;
+                try {
+                    emailInfo = JSON.parse(emailDataElement.textContent);
+                    console.log('Parsed email info:', emailInfo);
+                } catch (e) {
+                    console.error('Error parsing email data:', e);
+                    alert('Error parsing test data');
+                    return;
+                }
+
+                const reportWindow = window.open('', '_blank', 'width=1200,height=800');
+                if (!reportWindow) {
+                    console.log('Popup blocked');
+                    alert('Please allow pop-ups for this site');
+                    return;
+                }
+
+                console.log('Generating report HTML...');
+                const reportHTML = generateReportHTML(emailInfo);
+                console.log('Report HTML generated, length:', reportHTML.length);
+
+                reportWindow.document.write(reportHTML);
+                reportWindow.document.close();
+
+                reportWindow.onload = function() {
+                    console.log('Report window loaded, preparing to print...');
+                    setTimeout(() => {
+                        reportWindow.print();
+                    }, 1000);
+                };
+
+            } catch (error) {
+                console.error('Error in test download:', error);
+                alert('An error occurred: ' + error.message);
+            }
+        }
+
+        function generateReportHTML(emailInfo) {
+            const currentDate = new Date().toLocaleString();
+            const riskColor = emailInfo.risk_score > 70 ? '#ff4444' : emailInfo.risk_score > 40 ? '#ff8800' : '#00ff00';
+            
+            let html = '<!DOCTYPE html><html><head>';
+            html += '<title>OSPC Email Analysis Report</title>';
+            html += '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
+            html += '<style>';
+            html += 'body { font-family: Arial, sans-serif; background: #0a0f1c; color: #00ffcc; padding: 2rem; line-height: 1.6; margin: 0; }';
+            html += '.report-header { text-align: center; margin-bottom: 3rem; padding: 2rem; border-bottom: 3px solid #00ffcc; background: rgba(0, 255, 204, 0.1); border-radius: 15px; }';
+            html += '.report-section { background: rgba(0, 255, 204, 0.05); border: 2px solid #00ffcc; border-radius: 15px; padding: 2rem; margin-bottom: 2rem; }';
+            html += '.report-title { color: #00ffcc; border-bottom: 2px solid #00ffcc; padding-bottom: 1rem; margin-bottom: 2rem; font-size: 1.8rem; text-transform: uppercase; text-align: center; }';
+            html += '.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }';
+            html += '.info-item { background: rgba(0, 255, 204, 0.1); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(0, 255, 204, 0.3); text-align: center; }';
+            html += '.label { color: #00ffcc; font-size: 1rem; text-transform: uppercase; margin-bottom: 0.8rem; font-weight: bold; }';
+            html += '.value { font-size: 1.3rem; font-weight: bold; }';
+            html += '.risk-score { font-size: 3rem; color: ' + riskColor + '; text-align: center; margin: 2rem 0; font-weight: bold; }';
+            html += '.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }';
+            html += '.summary-card { background: rgba(0, 255, 204, 0.1); border: 2px solid #00ffcc; border-radius: 15px; padding: 1.5rem; text-align: center; }';
+            html += '.summary-value { font-size: 2.5rem; font-weight: bold; color: #00ffcc; margin-bottom: 0.5rem; }';
+            html += '.summary-label { font-size: 1rem; text-transform: uppercase; }';
+            html += '.chart-container { background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0; text-align: center; }';
+            html += '.report-footer { text-align: center; margin-top: 3rem; padding: 2rem; border-top: 3px solid #00ffcc; background: rgba(0, 255, 204, 0.1); border-radius: 15px; }';
+            html += '@media print { body { background: white; color: black; } .report-section { border: 1px solid #ccc; background: white; } .report-title, .label { color: black; } .value, .summary-value { color: #333; } }';
+            html += '</style></head><body>';
+            
+            // Header
+            html += '<div class="report-header">';
+            html += '<h1 style="font-size: 2.5rem; margin: 1rem 0;">Comprehensive Email Analysis Report</h1>';
+            html += '<p style="font-size: 1.2rem;">Generated on: ' + currentDate + '</p>';
+            html += '<p style="font-size: 1.1rem; color: #888;">Email: ' + emailInfo.email + '</p>';
+            html += '</div>';
+            
+            // Executive Summary
+            html += '<div class="report-section">';
+            html += '<h2 class="report-title">Executive Summary</h2>';
+            html += '<div class="summary-grid">';
+            html += '<div class="summary-card"><div class="summary-value">' + emailInfo.risk_score + '/100</div><div class="summary-label">Risk Score</div></div>';
+            html += '<div class="summary-card"><div class="summary-value">' + emailInfo.risk_level + '</div><div class="summary-label">Risk Level</div></div>';
+            html += '<div class="summary-card"><div class="summary-value">' + (emailInfo.breach_info.breach_count || 0) + '</div><div class="summary-label">Data Breaches</div></div>';
+            html += '<div class="summary-card"><div class="summary-value">' + (emailInfo.social_media_analysis ? emailInfo.social_media_analysis.summary.presence_score : 0) + '%</div><div class="summary-label">Social Presence</div></div>';
+            html += '</div></div>';
+            
+            // Footer
+            html += '<div class="report-footer">';
+            html += '<p style="font-size: 1.2rem;">Generated by OSPC Email Analysis Tool</p>';
+            html += '<p style="font-size: 1.5rem; color: #00ffcc; text-transform: uppercase; letter-spacing: 4px; margin-top: 1.5rem;">OSPC by Keerthivasan</p>';
+            html += '<p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">This report provides a comprehensive analysis of the email address for security and reconnaissance purposes.</p>';
+            html += '</div>';
+            
+            html += '</body></html>';
+            
+            return html;
+        }
+    </script>
+</body>
+</html> 
